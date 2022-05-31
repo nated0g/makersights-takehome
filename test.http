@@ -1,0 +1,31 @@
+@host = http://localhost:3001
+GET {{host}}/products HTTP/1.1 
+
+###
+
+POST {{host}}/products HTTP/1.1 
+Content-Type: application/json
+
+{
+  "name": "shoes",
+  "desc": "red",
+  "price": 999.00,
+  "addedDate": "{{$datetime iso8601 2 h}}",
+  "img_url": "shoes.com/red.jpg",
+  "categoryId": 2,
+  "subcategoryId": 1
+}
+
+###
+PATCH {{host}}/products/629673dfb59b090c0722a5c2 HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "shoes",
+  "desc": "blue",
+  "price": 999.00,
+  "addedDate": "{{$datetime iso8601 2 h}}",
+  "img_url": "shoes.com/red.jpg",
+  "categoryId": 2,
+  "subcategoryId": 1
+}
